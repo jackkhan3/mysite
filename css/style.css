@@ -1,121 +1,50 @@
-/* css/style.css */
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #f2f2f2;
-  color: #333;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MySite – Welcome</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
 
-.hero {
-  background-image: url('https://images.unsplash.com/photo-1588776814546-1f304e1ba5d6?auto=format&fit=crop&w=1470&q=80');
-  background-size: cover;
-  background-position: center;
-  height: 80vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Welcome to MySite</h1>
+      <p>Beautiful. Fast. Deployed with CI/CD.</p>
+      <a href="#features" class="btn">Explore Features</a>
+    </div>
+    <div class="hero-img">
+      <img src="https://source.unsplash.com/600x400/?technology,web" alt="Hero Image">
+    </div>
+  </header>
 
-.overlay {
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  text-align: center;
-  padding: 50px;
-  border-radius: 8px;
-  animation: fadeIn 2s ease-in-out;
-}
+  <section id="features" class="features">
+    <h2>What We Offer</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://source.unsplash.com/300x200/?code" alt="Code">
+        <h3>Clean Code</h3>
+        <p>We maintain modular, readable, and maintainable code for developers and users alike.</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x200/?design" alt="Design">
+        <h3>Modern Design</h3>
+        <p>Our interfaces are responsive, interactive, and optimized for all screen sizes.</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x200/?automation" alt="Deploy">
+        <h3>CI/CD Automation</h3>
+        <p>Push code → auto-deploy → live site. Simple, fast, and reliable automation.</p>
+      </div>
+    </div>
+  </section>
 
-.overlay h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
+  <footer>
+    <p>© 2025 MySite. Built with ❤️ and Fabric.</p>
+  </footer>
 
-.overlay p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.btn {
-  background: #00b4d8;
-  color: white;
-  padding: 12px 25px;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background 0.3s ease;
-}
-
-.btn:hover {
-  background: #0096c7;
-}
-
-nav {
-  background: #0077b6;
-  padding: 10px 0;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-nav a:hover,
-nav a.active {
-  text-decoration: underline;
-}
-
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  padding: 40px 20px;
-}
-
-.card {
-  background: white;
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  text-align: center;
-  padding: 25px;
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-}
-
-.card img {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 15px;
-}
-
-.card h3 {
-  margin: 10px 0;
-}
-
-footer {
-  background: #023e8a;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-/* Animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+</body>
+</html>
 
