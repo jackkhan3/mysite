@@ -1,50 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MySite – Welcome</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-</head>
-<body>
+body {
+  font-family: 'Rubik', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
 
-  <header class="hero">
-    <div class="hero-text">
-      <h1>Welcome to MySite</h1>
-      <p>Beautiful. Fast. Deployed with CI/CD.</p>
-      <a href="#features" class="btn">Explore Features</a>
-    </div>
-    <div class="hero-img">
-      <img src="https://source.unsplash.com/600x400/?technology,web" alt="Hero Image">
-    </div>
-  </header>
+header {
+  background-color: #1f77b4;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
 
-  <section id="features" class="features">
-    <h2>What We Offer</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="https://source.unsplash.com/300x200/?code" alt="Code">
-        <h3>Clean Code</h3>
-        <p>We maintain modular, readable, and maintainable code for developers and users alike.</p>
-      </div>
-      <div class="card">
-        <img src="https://source.unsplash.com/300x200/?design" alt="Design">
-        <h3>Modern Design</h3>
-        <p>Our interfaces are responsive, interactive, and optimized for all screen sizes.</p>
-      </div>
-      <div class="card">
-        <img src="https://source.unsplash.com/300x200/?automation" alt="Deploy">
-        <h3>CI/CD Automation</h3>
-        <p>Push code → auto-deploy → live site. Simple, fast, and reliable automation.</p>
-      </div>
-    </div>
-  </section>
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
 
-  <footer>
-    <p>© 2025 MySite. Built with ❤️ and Fabric.</p>
-  </footer>
+header p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
 
-</body>
-</html>
+nav {
+  background-color: #0f4c75;
+  padding: 0.5rem 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a.active,
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 2rem;
+}
+
+main section {
+  margin-bottom: 2rem;
+}
+
+main h2 {
+  color: #1f77b4;
+  margin-bottom: 0.5rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #e0e0e0;
+  color: #444;
+  font-size: 0.9rem;
+}
 
