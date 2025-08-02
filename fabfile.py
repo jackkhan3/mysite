@@ -51,16 +51,9 @@ def deploy_gitsite(c):
 
 @task
 def deploy_cicd(c):
-    """
-    Pulls latest changes from Git repo and restarts Apache.
-    Designed for GitHub Actions CI/CD.
-    """
     print("Running CI/CD deployment...")
-    with c.cd('/var/www/mysite'):
+    with c.cd('~/mysite'):
         c.run('git pull origin main')
-
-    c.sudo("systemctl restart httpd")
-    print(f"✅ CI/CD deploy complete: http://{get_ip(c)}/")
 
 # ----------------------
 # 🔧 Package & Repo Setup
