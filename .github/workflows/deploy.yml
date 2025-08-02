@@ -28,5 +28,5 @@ jobs:
           pip3 install fabric
 
       - name: Run Fabric Deploy
-        run: fab -H ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} deploy_gitsite
+        run: fab -H ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} deploy_cicd
 
