@@ -13,5 +13,5 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy using Fabric
-        run: fab deploy_cicd
+        run: fab -H aabid@devserver1 deploy_cicd
 
