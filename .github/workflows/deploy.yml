@@ -12,6 +12,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Verify Python & Fabric Setup
+        run: |
+          python3 --version
+          pip3 --version || echo "pip3 not installed"
+          fab --version
+          fab -l
+
+      - name: Install Python Dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y python3-pip
+          pip3 install fabric==2.6.0 invoke
+
       - name: Deploy using Fabric
         run: fab -H aabid@devserver1 deploy_cicd
 
