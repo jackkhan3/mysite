@@ -1,42 +1,42 @@
-name: Deploy with Fabric
+name: 🚀 Deploy to Devserver
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
 
 jobs:
   deploy:
+    name: Fabric Deployment
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+
+    env:
+      HOST: "192.168.50.12"
+      USER: "aabid"
 
     steps:
-      - name: 📥 Checkout repository
+      - name: 🛒 Checkout repository
         uses: actions/checkout@v3
 
-      - name: 🐍 Set up Python 3.10
+      - name: 🐍 Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
       - name: ⚙️ Install Fabric and dependencies
         run: |
-          pip install \
-            fabric==2.6.0 \
-            invoke==1.4.1 \
-            six==1.16.0 \
-            decorator==4.4.2 \
-            lexicon==1.0.0
+          pip install fabric
 
-      - name: 🔑 Ensure SSH setup (if needed)
+      - name: 🔐 Setup SSH
         run: |
           mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          echo "${{ secrets.DEV_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+
+      - name: 📁 Create placeholder for remote host config (optional)
+        run: |
+          echo "Host $HOST\n  User $USER\n  IdentityFile ~/.ssh/id_rsa\n  StrictHostKeyChecking no" >> ~/.ssh/config
+          chmod 600 ~/.ssh/config
 
       - name: 🚀 Run deployment with Fabric
-        run: |
-          fab -H aabid@192.168.50.12 deploy-cicd
+        run: fab -H $USER@$HOST deploy_cicd
 
