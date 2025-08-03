@@ -14,21 +14,29 @@ jobs:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
 
-      - name: 🐍 Set up Python & Pip
-        run: |
-          sudo apt-get update -y
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y python3 python3-pip
+      - name: 🐍 Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
-      - name: ⚙️ Install Fabric and required dependencies
+      - name: ⚙️ Install Fabric and dependencies
         run: |
-          pip3 install \
+          pip install \
             fabric==2.6.0 \
             invoke==1.4.1 \
             six==1.16.0 \
             decorator==4.4.2 \
             lexicon==1.0.0
 
-      - name: 🚀 Deploy using Fabric
+      - name: 🔑 Ensure SSH setup (if needed)
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: 🚀 Run deployment with Fabric
         run: |
           fab -H aabid@devserver1 deploy_cicd
 
