@@ -38,5 +38,5 @@ jobs:
 
       - name: 🚀 Run deployment with Fabric
         run: |
-          fab -H aabid@devserver1 deploy-cicd
+          fab -H aabid@192.168.50.12 deploy-cicd
 
