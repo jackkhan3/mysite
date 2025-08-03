@@ -39,5 +39,4 @@ jobs:
 
       - name: 🚀 Run deployment with Fabric
         run: fab -H $USER@$HOST deploy_cicd
-      #on: workflow_dispatch:
 
